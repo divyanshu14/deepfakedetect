@@ -1,0 +1,28 @@
+{% extends "video_suggestions/base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h1>{{ fakeVideo.title }}</h1>
+    <video width="320" height="240" controls>
+        <source src="{{ fakeVideo.video.url }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+
+<div class="container-fluid">
+    <h2>Why do you think the video is a DeepFake?</h2><br>
+    <form method="POST">
+        {% csrf_token %}
+        {% for reason in reasons %}
+        <input type="checkbox" value="{{ reason.id }}">
+        <label>{{ reason.reasonText }}</label>
+        <br>
+        {% endfor %}
+        <input type="submit">
+    </form>
+</div>
+
+{% endblock content %}
