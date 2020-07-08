@@ -2,6 +2,8 @@
 
 {% load static %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
 <div class="container-fluid">
@@ -10,18 +12,11 @@
         <source src="{{ fakeVideo.video.url }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-</div>
-
-<div class="container-fluid">
-    <h2>Why do you think the video is a DeepFake?</h2><br>
+    <h2>Why do you think the video is a DeepFake?</h2>
     <form method="POST">
         {% csrf_token %}
-        {% for reason in reasons %}
-        <input type="checkbox" value="{{ reason.id }}">
-        <label>{{ reason.reasonText }}</label>
-        <br>
-        {% endfor %}
-        <input type="submit">
+        {{ form|crispy }}
+        <input type="submit" value="Submit">
     </form>
 </div>
 
