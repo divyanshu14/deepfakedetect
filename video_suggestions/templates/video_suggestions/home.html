@@ -1,0 +1,20 @@
+{% extends 'video_suggestions/base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="display-4">DeepFake Detect</h1>
+        <hr class="my-4">
+        <p>Please select a video to contribute.</p>
+    </div>
+    <div class="list-group">
+        {% for id, title in ids_titles %}
+        <a href="{% url 'video_suggestion' id %}" class="list-group-item list-group-item-action">{{ title }}</a>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

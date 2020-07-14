@@ -4,4 +4,4 @@ from .models import Reason
 class ReasonForm(forms.ModelForm):
     class Meta:
         model = Reason
-        fields = ['reason_text']
+        fields = ['email', 'age', 'gender', 'ethnicity', 'video_type', 'reason_text', 'reason_keywords']

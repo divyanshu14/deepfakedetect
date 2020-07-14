@@ -20,5 +20,5 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('df-video-reasons/', include('video_suggestions.urls')),
+    path('', include('video_suggestions.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
